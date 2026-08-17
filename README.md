@@ -30,6 +30,23 @@ though Google's CDN URLs are not permanent, so the local copies are the durable 
 
 The shipped 1080p hero video **is** tracked, in `site/media/hero/`.
 
+## Deploying (Vercel)
+
+`vercel.json` sets `outputDirectory: "site"` — the site lives in `site/`, not the repo
+root, so without it Vercel serves the root (which has no `index.html`) and returns
+**404: NOT_FOUND**. No build step, no install step; it's plain static files.
+
+`/admin/*` is served with `X-Robots-Tag: noindex`, and `/assets/*` + `/media/*` get
+immutable long-cache headers (CSS and JS are already content-hashed by `build.py`).
+
+**To block the CRM from the public deploy entirely**, add this to `vercel.json`:
+
+```json
+"routes": [{ "src": "/admin/(.*)", "status": 404 }]
+```
+
+Or put it behind Vercel's Password Protection / Deployment Protection in project settings.
+
 ## Before this goes live
 
 1. **The CRM has no login.** Anyone with the URL sees every customer and invoice. Don't
