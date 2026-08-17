@@ -121,6 +121,22 @@ So the true ceiling from a 4:3 generation is **2880x1620**, not 3840x2160 — cr
 16:9 costs the vertical. Topaz still earns its place over `bytedance_video_upscale`: much
 more natural detail instead of over-sharpened crunch.
 
+### Keeping the headline off the crew
+
+The hero copy was landing on the crew's faces. Two causes, both fixed:
+
+1. **Framing.** The 16:9 crop offset was moved from 250 to 540 (the bottom-most slice of
+   the 2880x2160 picture), which lifts the crew from 57-70% of frame height to **39-52%**
+   and grows the clean lawn band beneath them from 30% to 48%.
+2. **Type scaling.** `.display` scaled on `9.5vw` — viewport *width* — while the hero is
+   `100svh` tall. On wide-but-short screens that produced a text block tall enough to ride
+   back up over the crew. It now uses `min(9vw, 11svh)` so it respects height too, and the
+   hero lede and stack gaps are height-capped the same way.
+
+Where the crew sit was measured, not guessed: hi-vis pixels were tracked across every
+frame of the clip to find the band they occupy at any point. Verified clear at 11 viewport
+sizes from 375x667 to 2560x1080.
+
 ## Motion
 
 - **Click ripple** — a circle blooms at the click point and fades (~0.5s). It picks up the

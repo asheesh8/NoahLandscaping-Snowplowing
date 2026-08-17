@@ -82,7 +82,11 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
 
 /* ---- type ---- */
 .eyebrow{font-family:var(--mono); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0}
-.display{font-weight:800; letter-spacing:-.045em; line-height:.9; margin:0; font-size:clamp(2.8rem,9.5vw,9.5rem)}
+/* the hero is 100svh but the headline scaled on width alone, so wide-but-short
+   viewports produced a text block tall enough to ride up over the crew.
+   min() makes it respect height too. */
+.display{font-weight:800; letter-spacing:-.045em; line-height:.9; margin:0;
+  font-size:clamp(2.6rem, min(9vw, 11svh), 8.6rem)}
 .h1{font-weight:800; letter-spacing:-.045em; line-height:.92; margin:.6rem 0 0; font-size:clamp(2.4rem,7vw,6.4rem)}
 .h2{font-weight:800; letter-spacing:-.04em; line-height:.94; margin:0; font-size:clamp(2rem,5.4vw,4.8rem)}
 .h3{font-weight:800; letter-spacing:-.03em; line-height:1.04; margin:.5rem 0 1.2rem; font-size:clamp(1.3rem,2.4vw,2rem)}
@@ -179,9 +183,9 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
   content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 70%,transparent) 0%,transparent 32%,color-mix(in srgb,var(--bg) 45%,transparent) 60%,var(--bg) 98%);
 }
-.hero-inner{position:relative; z-index:2; display:grid; gap:1.4rem}
+.hero-inner{position:relative; z-index:2; display:grid; gap:clamp(.7rem,1.4vh,1.4rem)}
 .hero-sub{display:flex; flex-wrap:wrap; gap:1.4rem 2.4rem; align-items:flex-end; justify-content:space-between}
-.hero-cta{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:1.5rem}
+.hero-cta{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:clamp(.8rem,1.8vh,1.5rem)}
 .scroll-hint{font-family:var(--mono); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:flex; align-items:center; gap:.6rem}
 .scroll-hint i{display:block; width:1px; height:32px; background:currentColor; animation:drop 2.1s var(--ease) infinite}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -594,3 +598,8 @@ body[data-page="index"] .seasons button[aria-pressed="true"]{background:var(--me
 
 /* ripple over full-bleed photography uses the media accent so it stays visible */
 body[data-page="index"] .ripple{border-color:var(--media-accent)}
+
+
+/* hero copy is height-capped too, so the whole block always clears the crew */
+.hero .lede{font-size:clamp(.98rem, min(1.5vw, 2.4svh), 1.28rem); max-width:44ch}
+.hero .scroll-hint i{height:clamp(18px, 3svh, 32px)}
