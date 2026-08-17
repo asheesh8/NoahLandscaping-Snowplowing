@@ -299,3 +299,50 @@
   setTimeout(layout, 60);
   window.__revLayout = layout;
 })();
+
+/* ============================================================
+   Before / after sliders
+   A range input sits invisibly over the stage so it works with mouse,
+   touch, and keyboard for free. The "before" image is width-locked to the
+   stage so it doesn't squash as its clip container narrows.
+   ============================================================ */
+(() => {
+  const stages = document.querySelectorAll('[data-ba]');
+  if (!stages.length) return;
+
+  stages.forEach(fig => {
+    const stage = fig.querySelector('.ba-stage');
+    const clip  = fig.querySelector('.ba-clip');
+    const grip  = fig.querySelector('.ba-handle');
+    const range = fig.querySelector('.ba-range');
+
+    const sizeBefore = () => stage.style.setProperty('--stage-w', stage.clientWidth + 'px');
+    const apply = (v) => {
+      clip.style.width = v + '%';
+      grip.style.left  = v + '%';
+    };
+
+    range.addEventListener('input', () => apply(range.value));
+    // dragging anywhere on the stage should move it, not just the thumb
+    const fromEvent = (e) => {
+      const r = stage.getBoundingClientRect();
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+      const v = Math.max(0, Math.min(100, (x / r.width) * 100));
+      range.value = v; apply(v);
+    };
+    let down = false;
+    stage.addEventListener('pointerdown', e => { down = true; stage.setPointerCapture(e.pointerId); fromEvent(e); });
+    stage.addEventListener('pointermove', e => { if (down) fromEvent(e); });
+    stage.addEventListener('pointerup',   () => { down = false; });
+    stage.addEventListener('pointercancel', () => { down = false; });
+    // keyboard on the figure itself
+    fig.addEventListener('keydown', e => {
+      const step = e.shiftKey ? 10 : 4;
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); range.value = Math.max(0, +range.value - step); apply(range.value); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); range.value = Math.min(100, +range.value + step); apply(range.value); }
+    });
+
+    sizeBefore(); apply(50);
+    new ResizeObserver(sizeBefore).observe(stage);
+  });
+})();

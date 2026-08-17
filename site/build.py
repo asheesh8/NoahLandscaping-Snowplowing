@@ -25,10 +25,13 @@ PAGES = [
      "Real photographs from real jobs around Fairfax, Fletcher and the surrounding towns."),
     ("reviews",  "reviews.html",  "Reviews",
      "All 47 Google reviews for Noah's Landscaping & Snowplowing, shown verbatim. 4.9 stars."),
+    ("about",    "about.html",    "About",
+     "Noah Ross started mowing lawns around Fairfax, Vermont and built a five-person crew that works twelve months a year."),
     ("contact",  "contact.html",  "Contact",
      "Free estimates. Call or text (802) 735-5975. Based at 384 Fletcher Rd, Fairfax VT."),
 ]
-NAV = [("services", "Services"), ("work", "Work"), ("reviews", "Reviews"), ("contact", "Contact")]
+NAV = [("services", "Services"), ("work", "Work"), ("about", "About"),
+       ("reviews", "Reviews"), ("contact", "Contact")]
 
 # ── Vermont service map ─────────────────────────────────────────────────────
 # Simplified state boundary, real lat/lon. North = Canada line, east = Connecticut
@@ -115,6 +118,27 @@ def build_map():
   {''.join(pins)}
 </svg>"""
 
+# ── before / after ──────────────────────────────────────────────────────────
+def build_ba(limit=None):
+    """Split composites live in media/ba/. Left half = before, right = after."""
+    data = json.loads((HERE / "media/ba/index.json").read_text())
+    if limit: data = data[:limit]
+    out = []
+    for i, j in enumerate(data):
+        out.append(
+            f'<figure class="ba rv" data-ba tabindex="0" aria-label="Before and after: {html.escape(j["caption"])}. '
+            f'Drag or use arrow keys to compare.">'
+            f'<div class="ba-stage" style="aspect-ratio:{j["w"]}/{j["h"]}">'
+            f'<img class="ba-after"  src="media/ba/{j["slug"]}-after.webp"  alt="After — {html.escape(j["caption"])}" loading="lazy">'
+            f'<div class="ba-clip"><img class="ba-before" src="media/ba/{j["slug"]}-before.webp" alt="Before — {html.escape(j["caption"])}" loading="lazy"></div>'
+            f'<span class="ba-tag ba-tag-b">Before</span><span class="ba-tag ba-tag-a">After</span>'
+            f'<span class="ba-handle" aria-hidden="true"><i></i></span>'
+            f'<input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal amount">'
+            f'</div>'
+            f'<figcaption>{html.escape(j["caption"])}</figcaption>'
+            f'</figure>')
+    return "\n".join(out)
+
 # ── reviews ─────────────────────────────────────────────────────────────────
 def short_name(full):
     p = [x for x in full.strip().split() if x]
@@ -193,6 +217,8 @@ def main():
         "BADGE": brand("badge.svg", "foot-badge"),
         "FAVICON": FAVICON,
         "MAP": build_map(),
+        "BA_ALL": build_ba(),
+        "BA_SOME": build_ba(4),
         "MARQUEE": build_marquee(),
         "REVIEWS_FEATURED": feat,
         "REVIEWS_ALL": every,

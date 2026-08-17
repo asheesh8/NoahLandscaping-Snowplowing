@@ -1,6 +1,6 @@
 # Noah's Landscaping & Snowplowing — site
 
-Static, 5 pages. No framework, no CDN, no external font or script requests.
+Static, 6 pages. No framework, no CDN, no external font or script requests.
 
 ```bash
 cd site && python3 build.py && python3 -m http.server 8823
@@ -13,7 +13,7 @@ site/
 ├── build.py                 ← generator. run after ANY template/asset edit
 ├── templates/
 │   ├── _base.html           ← shared shell: nav, season switch, footer
-│   ├── index.html  services.html  work.html  reviews.html  contact.html
+│   ├── index.html  services.html  work.html  about.html  reviews.html  contact.html
 ├── assets/app.css  assets/app.js
 ├── brand/                   ← positioning, palette, voice, logo docs + proof sheet
 ├── admin/                   ← CRM single-page app (no login yet)
@@ -82,6 +82,25 @@ reply underneath tends to read as more credible than a wall of 5s — but it's a
 business decision and Noah should make it. His reply disputes the person was ever a
 customer.
 
+
+## Before / after
+
+`media/ba/` holds 8 split pairs. Noah's own before/after composites (side-by-side, with
+the caption burnt into the pixels) were pulled from the Google scrape, the seam detected
+by finding the lowest-variance column near centre, the caption bar cropped off, and each
+half exported separately.
+
+The comparison slider is a range input sitting invisibly over the stage — so it works
+with mouse, touch **and** keyboard for free, and the arrow keys move it (shift for bigger
+steps). The "before" image is width-locked to the stage so it doesn't squash as its clip
+container narrows.
+
+Sources: `media/ba/index.json` records which original each pair came from.
+
+**Facebook and Instagram could not be scraped.** Both are behind hard login walls and I
+won't log in to either. The before/afters here are Noah's own, from what he posted to
+Google. If he wants the Facebook set too, the practical route is exporting them from his
+own account.
 
 ## Contact form
 
