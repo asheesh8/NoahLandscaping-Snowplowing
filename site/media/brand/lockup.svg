@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" fill="none" role="img" aria-label="Noah's Landscaping and Snowplowing">
+  <defs><clipPath id="clip-lockup"><path d="M2,80 L20,36 L33,68 L50,12 L67,64 L81,30 L94,80 Z"/></clipPath></defs>
+  <g transform="translate(0,7) scale(.84)">
+    <g clip-path="url(#clip-lockup)"><rect x="0" y="12" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="21" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="30" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="39" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="48" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="57" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="66" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="75" width="220" height="5" fill="currentColor" opacity=".32"/></g>
+    <path d="M2,80 L94,80" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+  </g>
+  <text x="102" y="49" font-family="ui-sans-serif,-apple-system,Helvetica Neue,Arial,sans-serif"
+        font-size="39" font-weight="800" letter-spacing="-1.7" fill="currentColor">NOAH'S</text>
+  <text x="104" y="71" font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+        font-size="10.5" letter-spacing="3.3" fill="currentColor" opacity=".62">LANDSCAPING &amp; SNOWPLOWING</text>
+</svg>

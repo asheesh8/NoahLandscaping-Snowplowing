@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs><clipPath id="clip-favicon"><path d="M1,26 L10,9 L16,22 L22,4 L31,26 Z"/></clipPath></defs>
+  <g clip-path="url(#clip-favicon)">
+    <rect x="0" y="3"  width="32" height="6" fill="currentColor"/>
+    <rect x="0" y="9"  width="32" height="6" fill="currentColor" opacity=".33"/>
+    <rect x="0" y="15" width="32" height="6" fill="currentColor"/>
+    <rect x="0" y="21" width="32" height="5" fill="currentColor" opacity=".33"/>
+  </g>
+  <path d="M1,28.5 L31,28.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

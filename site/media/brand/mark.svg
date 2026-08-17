@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="Noah's — the Green Mountains, mowed">
+  <defs><clipPath id="clip-mark"><path d="M2,80 L20,36 L33,68 L50,12 L67,64 L81,30 L94,80 Z"/></clipPath></defs>
+  <g clip-path="url(#clip-mark)"><rect x="0" y="12" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="21" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="30" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="39" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="48" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="57" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="66" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="75" width="220" height="5" fill="currentColor" opacity=".32"/></g>
+  <path d="M2,80 L94,80" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+</svg>

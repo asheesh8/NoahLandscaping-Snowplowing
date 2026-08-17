@@ -1,0 +1,14 @@
+# Raw scrape — 424MB of original job photos. Source material, not deliverable.
+# Regenerate the web-sized set with the prep step; originals stay local.
+photos/
+
+# Video working files — Higgsfield outputs, upscales, masters (84MB + 29MB).
+# The shipped 1080p hero lives in site/media/hero/ and IS tracked.
+final/
+video_inputs/
+
+# Local scratch
+*.log
+.DS_Store
+.venv/
+__pycache__/

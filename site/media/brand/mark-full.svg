@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 96" fill="none" role="img" aria-label="Noah's — a mower cutting the Green Mountains">
+  <defs><clipPath id="clip-markfull"><path d="M60,80 L82,34 L96,68 L118,8 L140,62 L153,28 L176,80 Z"/></clipPath></defs>
+  <g clip-path="url(#clip-markfull)"><rect x="0" y="8" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="17" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="26" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="35" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="44" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="53" width="220" height="9" fill="currentColor" opacity=".32"/><rect x="0" y="62" width="220" height="9" fill="currentColor" opacity="1"/><rect x="0" y="71" width="220" height="9" fill="currentColor" opacity=".32"/></g>
+  <g transform="translate(2,17.599999999999994) scale(0.78)" fill="currentColor">
+    <rect x="6"  y="66" width="27" height="10" rx="3"/>
+    <rect x="20" y="54" width="32" height="13" rx="3"/>
+    <rect x="29" y="45" width="19" height="9"  rx="3"/>
+    <rect x="41" y="26" width="9"  height="20" rx="4"/>
+    <rect x="51" y="15" width="6"  height="34" rx="3"/>
+    <path d="M31,43 L24,31" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="43" cy="67" r="13"/>
+    <circle cx="12" cy="74" r="6"/>
+  </g>
+  <path d="M2,87 L108,87" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M116,87 L178,87" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" opacity=".3"/>
+</svg>

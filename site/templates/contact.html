@@ -1,0 +1,91 @@
+<section class="phead">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h1 class="h1 split"><span data-line>Call or text.</span><span data-line class="l2">That's it.</span></h1>
+    <p class="lede rv d1">No form to fill in, no portal, no waiting on a quote system. Noah answers the phone — most of the reviews on this site start with exactly that.</p>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="contact-grid">
+    <div>
+      <a class="phone-xl rv" href="tel:+18027355975">(802) 735-5975</a>
+      <div class="detail-list rv d1">
+        <div class="detail"><span class="eyebrow">Base</span><p>384 Fletcher Rd<br>Fairfax, VT 05454</p></div>
+        <div class="detail"><span class="eyebrow">Green season</span><p>April — October<br>Mowing, beds, mulch, cleanups</p></div>
+        <div class="detail"><span class="eyebrow">White season</span><p>November — March<br>Plowing, shovelling, sanding</p></div>
+        <div class="detail"><span class="eyebrow">Reviews</span><p>4.9 stars from 47<br><a href="reviews.html">Read them all →</a></p></div>
+      </div>
+
+      <form class="form rv d2" id="estimate-form" novalidate>
+        <p class="eyebrow form-h">Request an estimate</p>
+        <div class="f-row">
+          <label class="field"><span>Name <i>*</i></span>
+            <input name="name" required autocomplete="name" placeholder="Your name"></label>
+          <label class="field"><span>Phone <i>*</i></span>
+            <input name="phone" type="tel" required autocomplete="tel" placeholder="(802) 555-0100"></label>
+        </div>
+        <div class="f-row">
+          <label class="field"><span>Email</span>
+            <input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+          <label class="field"><span>Town <i>*</i></span>
+            <input name="town" required list="towns" placeholder="Fairfax">
+            <datalist id="towns"><option>Fairfax</option><option>Fletcher</option><option>Cambridge</option><option>Georgia</option><option>Westford</option><option>Milton</option><option>St. Albans</option><option>Underhill</option><option>Jeffersonville</option><option>Jericho</option><option>Essex</option><option>Burlington</option></datalist></label>
+        </div>
+        <label class="field"><span>Property address</span>
+          <input name="address" autocomplete="street-address" placeholder="Street address"></label>
+
+        <fieldset class="field chips-field">
+          <legend><span>What do you need? <i>*</i></span></legend>
+          <div class="pickers" data-when="green">
+            <label class="pick"><input type="checkbox" name="services" value="Mowing"><span>Mowing</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Trimming &amp; edging"><span>Trimming &amp; edging</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Mulch &amp; beds"><span>Mulch &amp; beds</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Cleanup"><span>Spring/fall cleanup</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Overgrown clearing"><span>Overgrown clearing</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Other"><span>Something else</span></label>
+          </div>
+          <div class="pickers" data-when="white" hidden>
+            <label class="pick"><input type="checkbox" name="services" value="Driveway plowing"><span>Driveway plowing</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Shovelling"><span>Hand shovelling</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Sanding"><span>Sanding &amp; ice</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Storm call"><span>One-off storm call</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Season contract"><span>Season contract</span></label>
+            <label class="pick"><input type="checkbox" name="services" value="Other"><span>Something else</span></label>
+          </div>
+        </fieldset>
+
+        <label class="field"><span>How soon?</span>
+          <select name="urgency">
+            <option value="Flexible">Whenever you can fit me in</option>
+            <option value="This week">This week</option>
+            <option value="Urgent">Urgent — as soon as possible</option>
+            <option value="Next season">Booking ahead for next season</option>
+          </select></label>
+
+        <label class="field"><span>Anything else</span>
+          <textarea name="message" rows="4" placeholder="Size of the property, gate codes, dogs, tricky access — whatever helps."></textarea></label>
+
+        <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="f-actions">
+          <button class="btn" type="submit">Send request</button>
+          <span class="f-alt">or just call <a href="tel:+18027355975">(802) 735-5975</a></span>
+        </div>
+        <p class="f-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+    </div>
+    <div class="map-panel rv d1">
+      <p class="eyebrow">Service area</p>
+      <h2 class="h3">Based in Fairfax.<br>Out the door early.</h2>
+      {{MAP}}
+      <div class="map-legend">
+        <span><i class="k-base"></i> Home base</span>
+        <span><i class="k-core"></i> Named in reviews</span>
+        <span><i class="k-ask"></i> Ask about your address</span>
+      </div>
+      <p class="map-read" id="map-read" aria-live="polite">Hover a town to see coverage.</p>
+    </div>
+  </div>
+</section>

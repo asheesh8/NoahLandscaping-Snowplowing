@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-season="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRM · Noah's Landscaping &amp; Snowplowing</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="assets/admin.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M1%2C26%20L10%2C9%20L16%2C22%20L22%2C4%20L31%2C26%20Z%22%20fill%3D%22%235E9E1A%22/%3E%3C/svg%3E">
+<script>
+(function(){var d=document.documentElement;try{
+ d.dataset.theme=localStorage.getItem('noah-theme')||'dark';
+ d.dataset.season=localStorage.getItem('noah-season')||'green';}catch(e){}})();
+</script>
+</head>
+<body>
+<div class="app">
+
+  <aside class="rail">
+    <div class="rail-top">
+      <svg viewBox="0 0 96 96" fill="none" aria-hidden="true">
+        <defs><clipPath id="cr"><path d="M2,80 L20,36 L33,68 L50,12 L67,64 L81,30 L94,80 Z"/></clipPath></defs>
+        <g clip-path="url(#cr)">
+          <rect x="0" y="12" width="200" height="9" fill="currentColor"/>
+          <rect x="0" y="21" width="200" height="9" fill="currentColor" opacity=".32"/>
+          <rect x="0" y="30" width="200" height="9" fill="currentColor"/>
+          <rect x="0" y="39" width="200" height="9" fill="currentColor" opacity=".32"/>
+          <rect x="0" y="48" width="200" height="9" fill="currentColor"/>
+          <rect x="0" y="57" width="200" height="9" fill="currentColor" opacity=".32"/>
+          <rect x="0" y="66" width="200" height="9" fill="currentColor"/>
+          <rect x="0" y="75" width="200" height="5" fill="currentColor" opacity=".32"/>
+        </g>
+        <path d="M2,80 L94,80" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <div><b>NOAH'S</b><span>Operations</span></div>
+    </div>
+
+    <nav>
+      <a href="#dashboard" data-view="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</a>
+      <a href="#leads" data-view="leads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M4 12h10M4 19h6"/></svg>Pipeline<span class="cnt" id="c-leads"></span></a>
+      <a href="#customers" data-view="customers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>Customers</a>
+      <a href="#schedule" data-view="schedule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule</a>
+      <a href="#invoices" data-view="invoices"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9 8h6M9 12h6"/></svg>Invoices</a>
+      <a href="#reviews" data-view="reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9Z"/></svg>Reviews</a>
+      <a href="#settings" data-view="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>Settings</a>
+    </nav>
+
+    <div class="rail-foot">
+      <div class="seg" role="group" aria-label="Season">
+        <button data-season-btn="green" aria-pressed="true">Green</button>
+        <button data-season-btn="white" aria-pressed="false">White</button>
+      </div>
+      <a class="lbl" href="../index.html" style="padding:.3rem .2rem">← Public site</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <button class="ico menu-b" id="menu-b" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+      <h1 id="title">Dashboard</h1>
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" placeholder="Search leads and customers…   /" aria-label="Search">
+      </div>
+      <button class="ico" id="theme-b" aria-label="Light or dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <circle class="i-sun" cx="12" cy="12" r="4.2"/>
+          <g class="i-sun" stroke-linecap="round"><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></g>
+          <path class="i-moon" d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/>
+        </svg>
+      </button>
+    </header>
+    <div class="view" id="view"></div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Details">
+  <div class="drawer-h">
+    <div><h2 id="drawer-title" style="margin:0;font-size:1.05rem;letter-spacing:-.02em"></h2>
+      <p id="drawer-sub" class="lbl" style="margin:.3rem 0 0"></p></div>
+    <button class="ico" id="drawer-x" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-b" id="drawer-body"></div>
+  <div class="drawer-f" id="drawer-foot"></div>
+</aside>
+
+<div class="toast" id="toast"></div>
+<script type="module" src="assets/admin.js"></script>
+</body>
+</html>

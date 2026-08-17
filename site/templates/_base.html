@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-season="green" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{TITLE}} · Noah's Landscaping &amp; Snowplowing</title>
+<meta name="description" content="{{DESC}}">
+<meta property="og:title" content="{{TITLE}} · Noah's Landscaping &amp; Snowplowing">
+<meta property="og:description" content="{{DESC}}">
+<meta property="og:image" content="media/hero/hero-poster.webp">
+<link rel="stylesheet" href="assets/app.css?v={{CSS_V}}">
+<link rel="icon" href="{{FAVICON}}">
+<script>
+/* set theme + season before paint so there is no flash */
+(function(){var d=document.documentElement;try{
+  var t=localStorage.getItem('noah-theme'); if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  d.dataset.theme=t;
+  var s=localStorage.getItem('noah-season'); if(!s){var m=new Date().getMonth();s=(m>=10||m<=2)?'white':'green';}
+  d.dataset.season=s;
+}catch(e){}})();
+</script>
+</head>
+<body data-page="{{SLUG}}">
+<div class="grain" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="brand" href="index.html">{{MARK}}<b>NOAH'S</b><span>Landscaping &amp; Snowplowing</span></a>
+  <nav class="nav-links" aria-label="Main">{{NAV}}</nav>
+  <div class="nav-tools">
+    <button class="icon-btn" id="theme-toggle" aria-label="Switch between light and dark mode">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+        <circle class="i-sun" cx="12" cy="12" r="4.2"/>
+        <g class="i-sun" stroke-linecap="round"><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></g>
+        <path class="i-moon" d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/>
+      </svg>
+    </button>
+    <a class="btn" href="tel:+18027355975">(802) 735-5975</a>
+    <button class="icon-btn menu-btn" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu" hidden>{{NAV}}</div>
+
+<div class="seasons" role="group" aria-label="Choose season">
+  <button data-season-btn="green" aria-pressed="true">Green season</button>
+  <button data-season-btn="white" aria-pressed="false">White season</button>
+</div>
+
+<main id="main">
+{{BODY}}
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      {{BADGE}}
+      <p class="eyebrow" style="margin-top:1rem">Landscaping &amp; Snowplowing LLC</p>
+    </div>
+    <div>
+      <p class="eyebrow foot-h">Contact</p>
+      <p><a href="tel:+18027355975">(802) 735-5975</a></p>
+      <p class="dim">384 Fletcher Rd, Fairfax VT 05454</p>
+    </div>
+    <div>
+      <p class="eyebrow foot-h">Seasons</p>
+      <p class="dim">Green — April to October</p>
+      <p class="dim">White — November to March</p>
+    </div>
+    <div>
+      <p class="eyebrow foot-h">Elsewhere</p>
+      <p><a href="https://www.google.com/maps/place/?q=place_id:ChIJpdoFAWQN3awR_P-K7BiMyyY" target="_blank" rel="noopener">Google Maps →</a></p>
+      <p><a href="reviews.html">All 47 reviews →</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js?v={{JS_V}}"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<section class="phead">
+  <div class="wrap">
+    <p class="eyebrow rv">Reviews</p>
+    <h1 class="h1 split"><span data-line>All of them.</span><span data-line class="l2">Word for word.</span></h1>
+    <p class="lede rv d1">Every Google review, copied verbatim — nothing edited, nothing cherry-picked. Noah's replies are included where he left one.</p>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="rev-layout">
+
+    <!-- ── sticky rail: score, distribution, map ── -->
+    <aside class="rev-rail">
+      <div class="rail-inner">
+        <div class="score rv">
+          <div class="score-n"><span data-count="4.9">0.0</span></div>
+          <div class="score-stars" aria-hidden="true">★★★★★</div>
+          <p class="score-l">{{REVIEWS_TOTAL}} Google reviews</p>
+        </div>
+
+        <div class="dist rv d1">{{REVIEWS_DIST}}</div>
+
+        <div class="map-panel rv d2">
+          <p class="eyebrow">Where we work</p>
+          {{MAP}}
+          <div class="map-legend">
+            <span><i class="k-base"></i> Home base</span>
+            <span><i class="k-core"></i> Named in reviews</span>
+            <span><i class="k-ask"></i> Ask about your address</span>
+          </div>
+          <p class="map-read" id="map-read" aria-live="polite">Hover a town to see coverage.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── all reviews ── -->
+    <div class="rev-main">
+      <div class="rev-controls rv">
+        <div class="chips" role="group" aria-label="Filter reviews by rating">
+          <button class="chip is-on" data-filter="all">All <b>{{REVIEWS_SHOWN}}</b></button>
+          <button class="chip" data-filter="5">5 ★</button>
+          <button class="chip" data-filter="4">4 ★</button>
+          <button class="chip" data-filter="1">1 ★</button>
+        </div>
+        <p class="rev-count eyebrow" id="rev-count" aria-live="polite"></p>
+      </div>
+
+      <div class="rev-list" id="rev-list">{{REVIEWS_ALL}}</div>
+
+      <p class="rev-note eyebrow rv">
+        Showing all {{REVIEWS_SHOWN}} written reviews. {{REVIEWS_SILENT}} more are star-ratings with no text.
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJpdoFAWQN3awR_P-K7BiMyyY" target="_blank" rel="noopener">Verify on Google →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-bg"><img src="media/work/green-house.webp" alt=""></div>
+  <div class="wrap">
+    <p class="eyebrow rv">Add yours</p>
+    <h2 class="h2 rv d1">Estimates are free.</h2>
+    <a class="phone rv d2" href="tel:+18027355975">(802) 735-5975</a>
+  </div>
+</section>
