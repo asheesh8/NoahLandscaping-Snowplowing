@@ -102,6 +102,25 @@ won't log in to either. The before/afters here are Noah's own, from what he post
 Google. If he wants the Facebook set too, the practical route is exporting them from his
 own account.
 
+## Hero video pipeline
+
+Seedance renders 1112x834 (4:3) regardless of input aspect. Getting a true 16:9 hero out
+of that takes three steps, and **step 2 is the trap**:
+
+1. Trim the opening — face artefacts are worst while the subjects are large in frame.
+2. Upscale via `topaz_video` at 2160p. Its `aspect_ratio: 16:9` **pads** rather than crops:
+   the output is a 3840x2160 container holding a 2880x2160 (still 4:3) picture with 480px
+   black pillarbox bars either side. It is not a 16:9 picture.
+3. Strip the bars and crop to real 16:9:
+
+```bash
+ffmpeg -i topaz.mp4 -vf "crop=2880:2160:480:0,crop=2880:1620:0:250" -crf 15 out.mp4
+```
+
+So the true ceiling from a 4:3 generation is **2880x1620**, not 3840x2160 — cropping to
+16:9 costs the vertical. Topaz still earns its place over `bytedance_video_upscale`: much
+more natural detail instead of over-sharpened crunch.
+
 ## Motion
 
 - **Click ripple** — a circle blooms at the click point and fades (~0.5s). It picks up the
