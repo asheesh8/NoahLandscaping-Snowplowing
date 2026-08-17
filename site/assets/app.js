@@ -127,45 +127,28 @@
     $('.vtmap')?.addEventListener('mouseleave', clear);
   }
 
-  /* ---------- custom cursor ---------- */
-  if (!matchMedia('(pointer:coarse)').matches && !reduce) {
-    const cur = document.createElement('div');
-    cur.className = 'cursor';
-    document.body.appendChild(cur);
-    let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y;
-    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; }, { passive: true });
-    (function loop() {
-      cx += (x - cx) * 0.18; cy += (y - cy) * 0.18;
-      cur.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
-      requestAnimationFrame(loop);
-    })();
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest('a,button,.tile,.pin')) cur.classList.add('is-lg');
-    });
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest('a,button,.tile,.pin')) cur.classList.remove('is-lg');
-    });
+  /* ---------- click ripple ----------
+     Replaces the old trailing cursor. A circle blooms at the click point and
+     fades — feedback on what you hit, nothing following the pointer around. */
+  if (!reduce) {
+    addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      const r = document.createElement('span');
+      r.className = 'ripple';
+      r.style.left = e.clientX + 'px';
+      r.style.top  = e.clientY + 'px';
+      const t = e.target;
+      if (t && typeof t.closest === 'function' &&
+          t.closest('a,button,.tile,.pin,.chip,.ba,input,select,textarea')) r.classList.add('on-target');
+      document.body.appendChild(r);
+      // animationend is the normal path; the timeout guarantees cleanup even if
+      // the animation never runs (background tab, throttled compositor)
+      const kill = () => r.remove();
+      r.addEventListener('animationend', kill, { once: true });
+      setTimeout(kill, 900);
+    }, { passive: true });
   }
 
-  /* ---------- parallax ---------- */
-  if (!reduce) {
-    const items = $$('[data-par]');
-    let ticking = false;
-    const run = () => {
-      const vh = innerHeight;
-      items.forEach(el => {
-        const r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) return;
-        const p = (r.top + r.height / 2 - vh / 2) / vh;
-        const img = el.querySelector('img');
-        if (img) img.style.transform =
-          `scale(1.12) translateY(${(p * (parseFloat(el.dataset.par) || 18)).toFixed(2)}px)`;
-      });
-      ticking = false;
-    };
-    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
-    run();
-  }
 })();
 
 /* ============================================================

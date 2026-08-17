@@ -70,14 +70,15 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
 [data-theme="light"] .grain{opacity:.035; mix-blend-mode:multiply}
 @keyframes grain{0%{transform:translate(0,0)}50%{transform:translate(-2%,1.5%)}100%{transform:translate(1%,-1%)}}
 
-.cursor{
-  position:fixed; top:0; left:0; width:26px; height:26px; border-radius:50%;
-  border:1px solid var(--fg); mix-blend-mode:difference; z-index:9999;
-  pointer-events:none; transform:translate(-50%,-50%);
-  transition:width .3s var(--ease),height .3s var(--ease),background .3s var(--ease);
+/* click ripple — feedback where you clicked, nothing trails the pointer */
+.ripple{
+  position:fixed; z-index:9997; pointer-events:none;
+  width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%;
+  border:1.5px solid var(--accent); opacity:.9;
+  animation:ripple .52s cubic-bezier(.22,.61,.36,1) forwards;
 }
-.cursor.is-lg{width:70px; height:70px; background:var(--fg)}
-@media (hover:none),(pointer:coarse){.cursor{display:none}}
+.ripple.on-target{border-color:var(--accent); background:color-mix(in srgb,var(--accent) 18%,transparent)}
+@keyframes ripple{to{transform:scale(4.2); opacity:0}}
 
 /* ---- type ---- */
 .eyebrow{font-family:var(--mono); font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0}
@@ -589,3 +590,7 @@ body[data-page="index"] .seasons button[aria-pressed="true"]{background:var(--me
   font-family:var(--mono); font-size:.6rem; letter-spacing:.14em; text-transform:uppercase;
   background:linear-gradient(transparent,var(--shade)); color:#F1EFE6;
 }
+
+
+/* ripple over full-bleed photography uses the media accent so it stays visible */
+body[data-page="index"] .ripple{border-color:var(--media-accent)}

@@ -102,6 +102,19 @@ won't log in to either. The before/afters here are Noah's own, from what he post
 Google. If he wants the Facebook set too, the practical route is exporting them from his
 own account.
 
+## Motion
+
+- **Click ripple** — a circle blooms at the click point and fades (~0.5s). It picks up the
+  accent colour, and the media accent over full-bleed photography. Cleanup is belt-and-braces:
+  `animationend` normally, plus a 900ms timeout so nothing leaks if the animation never runs
+  (background tab, throttled compositor).
+- **No trailing cursor.** The old lerped circle that followed the pointer is gone.
+- **No scroll parallax.** Images no longer shift as you scroll; `data-par` attributes removed.
+- **Kept:** scroll reveals (fade-up on enter), count-ups, and the marquee — these are entrance
+  animations, not pointer or scroll-linked effects.
+
+All of it stays off under `prefers-reduced-motion`.
+
 ## Contact form
 
 `templates/contact.html` → validated, honeypot-protected, season-aware service pickers
