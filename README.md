@@ -9,6 +9,8 @@ cd site && python3 build.py && python3 -m http.server 8823
 - Public site → `http://localhost:8823`
 - CRM → `http://localhost:8823/admin/` *(no authentication yet — see below)*
 
+**Live:** https://noah-landscaping-snowplowing.vercel.app
+
 ## What's here
 
 | Path | |
